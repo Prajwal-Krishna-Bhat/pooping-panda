@@ -75,3 +75,23 @@ void priorityScheduling(Process processes[], int n)
     averageWaitingTime=totalWaitingTime/n;
     printf("Average Waiting Time: %.2f\n",averageWaitingTime);
 }
+int main()
+{
+    int n;
+    printf("Enter the number of processes: ");
+    scanf("%d",&n);
+    Process processes[n];
+    for(int i=0;i<n;i++)
+    {
+        printf("\nEnter the details for processes %d:\n",i+1);
+        processes[i].ProcessID=i+1;
+        printf("Enter the burst time: ");
+        scanf("%d",&processes[i].burstTime);
+        printf("Enter the priority: ");
+        scanf("%d",&processes[i].Priority);
+    }
+    fcfs(processes,n);
+    sjn(processes,n);
+    priorityScheduling(processes,n);
+    return 0;
+}
